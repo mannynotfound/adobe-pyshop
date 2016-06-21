@@ -1,0 +1,9 @@
+[
+  {
+    "base": "./images/billboard.png",
+    "inputs": "./images/subway.jpg",
+    "output": "./output/billboard_final.png",
+    "coords": "[(135, 140), (462, 30), (488, 256), (97, 328)]"
+  }
+]
+
