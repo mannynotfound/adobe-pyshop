@@ -1,9 +1,74 @@
 [
   {
     "base": "./images/billboard.png",
-    "inputs": "./images/subway.jpg",
     "output": "./output/billboard_final.png",
-    "coords": "[(135, 140), (462, 30), (488, 256), (97, 328)]"
+    "type": "perspective_map",
+    "coords": "[(135, 140), (462, 30), (488, 256), (97, 328)]",
+    "fit": "stretch"
+  },
+  {
+    "base": "./templates/10x10CM_Oak.png",
+    "output": "./output/framed_oak_final.png",
+    "type": "resize_position",
+    "width": 485,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/AA_2102_Front_Background.png",
+    "output": "./output/white_tshirt_final.png",
+    "type": "resize_position",
+    "width": 235,
+    "positionX": 360,
+    "positionY": 260
+  },
+  {
+    "base": "./templates/AA2408_White_Front_Background.png",
+    "output": "./output/white_tank_final.png",
+    "type": "resize_position",
+    "width": 220,
+    "positionX": 200,
+    "positionY": 315
+  },
+  {
+    "base": "./templates/AA5495_White_Front_Background.png",
+    "output": "./output/white_hoodie_final.png",
+    "type": "resize_position",
+    "width": 255,
+    "positionX": 305,
+    "positionY": 275
+  },
+  {
+    "base": "./templates/AccessoryPouch125x85Tbottom-Overlay_New.png",
+    "output": "./output/pouch_final.png",
+    "type": "perspective_map",
+    "coords": "[(468, 511), (1636, 511), (1556, 913), (540, 913)]",
+    "fit": "stretch"
+  },
+  {
+    "base": "./templates/AdjustableStrap18x18Overlayv3.png",
+    "output": "./output/strap_bag_final.png",
+    "type": "resize_position",
+    "width": 610,
+    "positionX": 175,
+    "positionY": 1265
+  },
+  {
+    "base": "./templates/Apron_overlay_V3.png",
+    "output": "./output/apron_final.png",
+    "type": "resize_position",
+    "width": 290,
+    "positionX": 230,
+    "positionY": 620
+  },
+  {
+    "base": "./templates/BathTowel_30x60_Overlay.png",
+    "output": "./output/bath_towel_final.png",
+    "type": "resize_position",
+    "overlay_base": true,
+    "width": 585,
+    "positionX": 13,
+    "positionY": 13
   }
 ]
 

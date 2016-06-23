@@ -4,41 +4,74 @@ import os
 import json
 from transform_image import map_perspective
 from show import show_image
+import cv2
 
 # contruct + parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument('-b', '--base', help = 'base image to be manipulated')
-ap.add_argument('-i', '--inputs', help = 'input image to apply to base')
-ap.add_argument('-c', '--coords', help = 'cords of where to place input')
-ap.add_argument('-o', '--output', help = 'results output path')
-ap.add_argument('-ba', '--batch', help = 'config file for batch processing')
+ap.add_argument('-c', '--config', help = 'config file for processing')
+ap.add_argument('-i', '--inputs', help = 'input file for processing')
 args = vars(ap.parse_args())
 
-batch = args['batch']
+config_file = args['config']
+inputs = args['inputs']
 
-def mask_image(base, inputs, coords, output):
+def perspective_map(options):
+    base = options['base']
+    output = options['output']
+    coords = options['coords']
+
     map_perspective(base, inputs, coords, output)
     os.system('convert ' + output + ' -transparent black ' + output)
     os.system('convert ' + base + ' ' + output + ' -gravity center -composite ' + output)
 
-if batch:
-    with open(batch) as data:
-        config = json.load(data)
 
-        for cfg in config:
-            b = cfg['base']
-            i = cfg['inputs']
-            c = cfg['coords']
-            o = cfg['output']
-            mask_image(b, i, c, o)
+def resize_position(options):
+    base = options['base']
+    output = options['output']
+    width = options['width']
+    os.system('convert -resize ' + str(width) + 'x ' + inputs + ' ' + output)
 
-    # run through config file
-else:
-    b = args['base']
-    i = args['inputs']
-    c = args['coords']
-    o = args['output']
-    mask_image(b, i, c, o)
+    position = ''
+    positionX = options['positionX']
+    positionY = options['positionY']
+
+    if positionX == 'center' and positionY == 'center':
+        position = '-gravity center'
+    else:
+        position = '-geometry ' + ' +' + str(positionX) + '+' + str(positionY)
+
+    input1 = base
+    input2 = output
+    extra_options = ' '
+
+    if options.get('overlay_base', False):
+        image = cv2.imread(base)
+        height = image.shape[0]
+        width = image.shape[1]
+        position = '-geometry +0+0'
+
+        temp_canvas = './output/temp_canvas.png'
+        os.system('convert -size ' + str(width) + 'x' + str(height) + ' xc:white ' + temp_canvas)
+        os.system('convert ' + temp_canvas + ' ' + output + ' -gravity center -composite ' + output)
+        os.system('rm ' + temp_canvas)
+
+        input1 = output
+        input2 = base
+
+    os.system('convert ' + input1 + ' ' + input2 + ' ' + position + ' -composite ' + output)
+
+
+with open(config_file) as data:
+    config = json.load(data)
+
+
+for cfg in config:
+    if cfg['type'] == 'perspective_map':
+        perspective_map(cfg)
+    elif cfg['type'] == 'resize_position':
+        resize_position(cfg)
+    else:
+        print 'NO VALID ACTION FOUND'
 
 
 
