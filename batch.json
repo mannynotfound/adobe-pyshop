@@ -1,12 +1,5 @@
 [
   {
-    "base": "./images/billboard.png",
-    "output": "./output/billboard_final.png",
-    "type": "perspective_map",
-    "coords": "[(135, 140), (462, 30), (488, 256), (97, 328)]",
-    "fit": "stretch"
-  },
-  {
     "base": "./templates/10x10CM_Oak.png",
     "output": "./output/framed_oak_final.png",
     "type": "resize_position",
@@ -69,6 +62,146 @@
     "width": 585,
     "positionX": 13,
     "positionY": 13
+  },
+  {
+    "base": "./templates/CurtainSheer84x50-Overlay.png",
+    "output": "./output/bath_curtain_final.png",
+    "type": "resize_position",
+    "overlay_base": true,
+    "width": 1008,
+    "positionX": 120,
+    "positionY": 786
+  },
+  {
+    "base": "./templates/dog_shirt_white_navy_Background.png",
+    "output": "./output/dog_shirt_final.png",
+    "type": "resize_position",
+    "width": 320,
+    "positionX": 260,
+    "positionY": 385
+  },
+  {
+    "base": "./templates/DuvetCover88x68Overlay_v5.png",
+    "output": "./output/duvet_final.png",
+    "type": "resize_position",
+    "rotate": 90,
+    "overlay_base": true,
+    "width": 520,
+    "positionX": "center",
+    "positionY": "center",
+    "offsetY": 135
+  },
+  {
+    "base": "./templates/FleeceBlanket_60x80_New1.png",
+    "output": "./output/fleece_blanket_final.png",
+    "type": "resize_position",
+    "overlay_base": true,
+    "rotate": 90,
+    "width": 400,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/HandTowel15x24_V1_Overlay.png",
+    "output": "./output/hand_towel_final.png",
+    "type": "resize_position",
+    "overlay_base": true,
+    "width": 680,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/Harcover_Notebooks_Overlay_v2.png",
+    "output": "./output/hardcover_final.png",
+    "type": "resize_position",
+    "width": 1440,
+    "positionX": 435,
+    "positionY": 445
+  },
+  {
+    "base": "./templates/InfantClothing_4001_Back_Background__WHITE.png",
+    "output": "./output/infant_clothes_final.png",
+    "type": "resize_position",
+    "width": 670,
+    "positionX": 595,
+    "positionY": 430
+  },
+  {
+    "base": "./templates/iPadMini-overlay.png",
+    "output": "./output/ipad_mini_final.png",
+    "type": "resize_position",
+    "width": 1310,
+    "rotate": 90,
+    "overlay_base": true,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/iPhone_overlay.png",
+    "output": "./output/iphone_6s_final.png",
+    "type": "resize_position",
+    "width": 1730,
+    "rotate": 90,
+    "overlay_base": true,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/Kids_Small_FlipFlops_Left_V1.png",
+    "output": "./output/sandal_final.png",
+    "type": "resize_position",
+    "width": 875,
+    "rotate": 90,
+    "overlay_base": true,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/LaptopCover8_Overlay.png",
+    "output": "./output/laptop_cover_final.png",
+    "type": "resize_position",
+    "width": 540,
+    "overlay_base": true,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/Mousepad-new-overlayv3.png",
+    "output": "./output/mousepad_final.png",
+    "type": "resize_position",
+    "width": 570,
+    "overlay_base": true,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/Scarf_with_Tassels_Overlay.png",
+    "output": "./output/scarf_final.png",
+    "type": "resize_position",
+    "width": 2664,
+    "rotate": 90,
+    "overlay_base": true,
+    "positionX": "center",
+    "positionY": "center"
+  },
+  {
+    "base": "./templates/ToteBags13x13Overlay_New.png",
+    "output": "./output/tote_bag_final.png",
+    "type": "resize_position",
+    "width": 410,
+    "positionX": 160,
+    "positionY": 700
+  },
+  {
+    "base": "./templates/WineBottleLabels_375x45_Overlay.png",
+    "output": "./output/wine_bottle_final.png",
+    "type": "resize_position",
+    "rotate": 90,
+    "overlay_base": true,
+    "width": 670,
+    "positionX": "center",
+    "positionY": "center",
+    "offsetY": 400
   }
 ]
 

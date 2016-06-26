@@ -3,7 +3,6 @@ import argparse
 import os
 import json
 from transform_image import map_perspective
-from show import show_image
 import cv2
 
 # contruct + parse the arguments
@@ -32,17 +31,25 @@ def resize_position(options):
     os.system('convert -resize ' + str(width) + 'x ' + inputs + ' ' + output)
 
     position = ''
+    geometry = ''
     positionX = options['positionX']
     positionY = options['positionY']
 
     if positionX == 'center' and positionY == 'center':
         position = '-gravity center'
+        offsetX = options.get('offsetX', 0)
+        offsetY = options.get('offsetY', 0)
+        geometry += '-geometry +' + str(offsetX) + '+' + str(offsetY)
+        position += ' ' + geometry
     else:
         position = '-geometry ' + ' +' + str(positionX) + '+' + str(positionY)
 
     input1 = base
     input2 = output
     extra_options = ' '
+
+    if options.get('rotate', False):
+        os.system('convert -rotate ' + str(options['rotate']) + ' ' + str(output) + ' ' + str(output))
 
     if options.get('overlay_base', False):
         image = cv2.imread(base)
@@ -52,7 +59,7 @@ def resize_position(options):
 
         temp_canvas = './output/temp_canvas.png'
         os.system('convert -size ' + str(width) + 'x' + str(height) + ' xc:white ' + temp_canvas)
-        os.system('convert ' + temp_canvas + ' ' + output + ' -gravity center -composite ' + output)
+        os.system('convert ' + temp_canvas + ' ' + output + ' -gravity center ' + geometry + ' -composite ' + output)
         os.system('rm ' + temp_canvas)
 
         input1 = output
@@ -72,6 +79,3 @@ for cfg in config:
         resize_position(cfg)
     else:
         print 'NO VALID ACTION FOUND'
-
-
-
